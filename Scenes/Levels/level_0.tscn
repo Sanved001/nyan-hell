@@ -2,6 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://bsv37cxgkg8n8" path="res://Scenes/player.tscn" id="1_y8ppt"]
 [ext_resource type="PackedScene" uid="uid://c7ov1lnyfafdv" path="res://Scenes/moves/spinner.tscn" id="2_2iktx"]
+[ext_resource type="PackedScene" uid="uid://ncxk3e4417eo" path="res://Scenes/Enemies/Ice_Princess.tscn" id="3_ic72l"]
 
 [node name="Level_0" type="Node2D" unique_id=1166289136]
 
@@ -9,3 +10,6 @@
 
 [node name="Spinner" parent="." unique_id=223049237 instance=ExtResource("2_2iktx")]
 position = Vector2(175, 226)
+
+[node name="Ice_Princess" parent="." unique_id=1458522844 instance=ExtResource("3_ic72l")]
+position = Vector2(173, 223)

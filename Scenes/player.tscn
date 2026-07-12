@@ -4,14 +4,25 @@
 [ext_resource type="Texture2D" uid="uid://d1o8q5eno0ye0" path="res://icon.svg" id="1_v0iea"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_7b57l"]
+radius = 3.1622777
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_312cd"]
+radius = 3.0
 
 [node name="Player" type="CharacterBody2D" unique_id=1776325952 node_paths=PackedStringArray("player_sprite")]
 script = ExtResource("1_cvnsp")
 player_sprite = NodePath("Sprite2D")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1263468127]
-shape = SubResource("CircleShape2D_7b57l")
-
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=641924450]
 scale = Vector2(0.2, 0.2)
 texture = ExtResource("1_v0iea")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1263468127]
+shape = SubResource("CircleShape2D_7b57l")
+
+[node name="HurtBox" type="Area2D" parent="." unique_id=1988546822]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HurtBox" unique_id=2061372852]
+shape = SubResource("CircleShape2D_312cd")
+
+[connection signal="area_entered" from="HurtBox" to="." method="_on_hurt_box_area_entered"]

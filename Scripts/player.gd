@@ -43,3 +43,11 @@ func _physics_process(delta: float) -> void:
 
 
 	move_and_slide()
+
+
+func _on_hurt_box_area_entered(area: Area2D) -> void:
+	if not area is Hitbox:
+		return
+	if OS.is_debug_build():
+		print("Player Came In contact with Entity:%s" % area.entity_name, "(%s)" % area.entity_type)
+	get_tree().reload_current_scene()

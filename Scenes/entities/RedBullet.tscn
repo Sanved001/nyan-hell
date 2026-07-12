@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://dlft3ei2mav5x"]
+
+[ext_resource type="Texture2D" uid="uid://d1aimpicrvd0k" path="res://Assets/assets/sprites/bullets/bullet-red.png" id="1_1yj2h"]
+[ext_resource type="Script" uid="uid://dpwa3wt1h73x2" path="res://Scenes/entities/RedBullet_hit_box.gd" id="2_1yj2h"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_7b57l"]
+radius = 1.0
+
+[node name="RedBullet" type="Node2D" unique_id=1682883194]
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=604596573]
+texture = ExtResource("1_1yj2h")
+
+[node name="HitBox" type="Area2D" parent="." unique_id=1579250802]
+script = ExtResource("2_1yj2h")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitBox" unique_id=1662920847]
+shape = SubResource("CircleShape2D_7b57l")

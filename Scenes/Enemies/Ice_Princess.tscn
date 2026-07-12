@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://ncxk3e4417eo"]
+
+[ext_resource type="Texture2D" uid="uid://b81ckkylniri4" path="res://Assets/assets/sprites/Enemies/Ice_Princess.png" id="1_qduow"]
+
+[node name="Ice_Princess" type="Node2D" unique_id=1458522844]
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=987554565]
+texture = ExtResource("1_qduow")

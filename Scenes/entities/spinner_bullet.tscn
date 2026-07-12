@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://cwwr6caiigfig"]
 
 [ext_resource type="Script" uid="uid://pbwd7rp35djk" path="res://Scenes/entities/spinner_bullet.gd" id="1_r2u3t"]
-[ext_resource type="PackedScene" uid="uid://dlft3ei2mav5x" path="res://Scenes/entities/bullet.tscn" id="2_uxc27"]
+[ext_resource type="PackedScene" uid="uid://dlft3ei2mav5x" path="res://Scenes/entities/RedBullet.tscn" id="2_uxc27"]
 
 [node name="spinner_bullet" type="Node2D" unique_id=155215721]
 script = ExtResource("1_r2u3t")
