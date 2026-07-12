@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://c7ov1lnyfafdv"]
+
+[ext_resource type="Script" uid="uid://cmo3pprio6wpv" path="res://Scenes/moves/spinner.gd" id="1_ctanp"]
+
+[node name="Spinner" type="Node2D" unique_id=223049237]
+script = ExtResource("1_ctanp")
+
+[node name="Bullet_Spawn_Timer" type="Timer" parent="." unique_id=1862926260]
+
+[connection signal="timeout" from="Bullet_Spawn_Timer" to="." method="_on_bullet_spawn_timer_timeout"]

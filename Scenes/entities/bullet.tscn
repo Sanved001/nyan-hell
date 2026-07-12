@@ -1,0 +1,7 @@
+[gd_scene format=3 uid="uid://dlft3ei2mav5x"]
+
+[node name="Bullet" type="Node2D" unique_id=1682883194]
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=945034217]
+offset_right = 5.0
+offset_bottom = 5.0
