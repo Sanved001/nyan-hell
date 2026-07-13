@@ -10,6 +10,8 @@ var play_area_size:Vector2
 const SPEED = 300.0
 
 func _ready() -> void:
+	PlayerManager.player = self
+	
 	margin_x = (player_sprite.texture.get_size().x * player_sprite.scale.x) / 2
 	margin_y = (player_sprite.texture.get_size().y * player_sprite.scale.y) / 2
 	if OS.is_debug_build():

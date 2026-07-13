@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://bc1hs1cgbwovw"]
+
+[ext_resource type="Script" uid="uid://goxuuf2gasyy" path="res://Scenes/entities/sin_ray_bullet.gd" id="1_b0to7"]
+[ext_resource type="Texture2D" uid="uid://d1aimpicrvd0k" path="res://Assets/assets/sprites/bullets/bullet-red.png" id="2_0o3yk"]
+
+[node name="sinRay_bullet" type="Node2D" unique_id=828867652]
+script = ExtResource("1_b0to7")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=159259706]
+texture = ExtResource("2_0o3yk")

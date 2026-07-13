@@ -2,14 +2,19 @@
 
 [ext_resource type="PackedScene" uid="uid://bsv37cxgkg8n8" path="res://Scenes/player.tscn" id="1_y8ppt"]
 [ext_resource type="PackedScene" uid="uid://c7ov1lnyfafdv" path="res://Scenes/moves/spinner.tscn" id="2_2iktx"]
-[ext_resource type="PackedScene" uid="uid://ncxk3e4417eo" path="res://Scenes/Enemies/Ice_Princess.tscn" id="3_ic72l"]
+[ext_resource type="PackedScene" uid="uid://ncxk3e4417eo" path="res://Scenes/Enemies/Ice_Princess.tscn" id="4_r74qd"]
+[ext_resource type="PackedScene" uid="uid://bhqwkr58dif4v" path="res://Scenes/moves/sin_ray.tscn" id="4_um5o3"]
 
 [node name="Level_0" type="Node2D" unique_id=1166289136]
 
 [node name="Player" parent="." unique_id=1776325952 instance=ExtResource("1_y8ppt")]
+position = Vector2(237, 135)
 
 [node name="Spinner" parent="." unique_id=223049237 instance=ExtResource("2_2iktx")]
 position = Vector2(175, 226)
 
-[node name="Ice_Princess" parent="." unique_id=1458522844 instance=ExtResource("3_ic72l")]
-position = Vector2(173, 223)
+[node name="Ice_Princess" parent="." unique_id=1458522844 instance=ExtResource("4_r74qd")]
+position = Vector2(175, 226)
+
+[node name="SinRay" parent="." unique_id=2081127189 instance=ExtResource("4_um5o3")]
+position = Vector2(149, 71)

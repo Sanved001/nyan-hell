@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://bhqwkr58dif4v"]
+
+[ext_resource type="Script" uid="uid://w5mgx1qjqan5" path="res://Scenes/moves/sin_ray.gd" id="1_3bgt1"]
+
+[node name="SinRay" type="Node2D" unique_id=2081127189]
+script = ExtResource("1_3bgt1")
+
+[node name="Bullet_Spawn_Timer" type="Timer" parent="." unique_id=1561371448]
+
+[connection signal="timeout" from="Bullet_Spawn_Timer" to="." method="_on_bullet_spawn_timer_timeout"]

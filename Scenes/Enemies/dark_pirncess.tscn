@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://bxqht1mby33mh"]
+
+[ext_resource type="Texture2D" uid="uid://bmi7wcyy08dn3" path="res://Assets/assets/sprites/Enemies/dark-princess.png" id="1_kb6ry"]
+
+[node name="Dark_Pirncess" type="Node2D" unique_id=1801353283]
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=539212451]
+texture = ExtResource("1_kb6ry")
