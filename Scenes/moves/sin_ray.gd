@@ -1,23 +1,35 @@
 extends Node2D
 
 var bullet = preload("res://Scenes/entities/sin_ray_bullet.tscn")
+
+@export var line_length:float = 500
+@export var bullet_spawn_cooldown:float = 0.2
+
+
 @onready var bullet_spawn_timer: Timer = $Bullet_Spawn_Timer
 
 
-var is_bullet_spawn_cooldown:bool = false
-var bullet_spawn_cooldown:float = 0.2
-var global_player_pos:Vector2 = Vector2.ZERO
 
+
+
+var is_bullet_spawn_cooldown:bool = false
+var player_global_pos:Vector2 = Vector2.ZERO
+var line_to_player:Vector2
+var direction_to_player:Vector2
+var plane_to_player:Vector2
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	global_player_pos = PlayerManager.get_player_global_position()
+	player_global_pos = PlayerManager.get_player_global_position()
+	line_to_player = player_global_pos - global_position
+	direction_to_player = line_to_player.normalized()
+	
+	plane_to_player = direction_to_player * line_length
+	if OS.is_debug_build():
+		print("Player is %spx away" % line_to_player.length())
 	_on_bullet_spawn_timer_timeout()
 
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
 
 var m_tick:bool = false
 func _on_bullet_spawn_timer_timeout() -> void:
@@ -27,8 +39,14 @@ func _on_bullet_spawn_timer_timeout() -> void:
 	
 	var bullet_a = bullet.instantiate()
 	bullet_a.rotation = rotation
-	bullet_a.player_global_position = global_player_pos
+	bullet_a.player_global_position = player_global_pos
+	bullet_a.direction_to_player = direction_to_player
+	bullet_a.initital_position = global_position
+	
+	if m_tick: bullet_a.wave_offset_value = 50
+	else: bullet_a.wave_offset_value = -50
+	
+	
 	get_parent().add_child(bullet_a)
-	bullet_a.initial_position = self.global_position
 	bullet_a.global_position = self.global_position
 	bullet_spawn_timer.start(bullet_spawn_cooldown)

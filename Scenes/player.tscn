@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://bsv37cxgkg8n8"]
 
 [ext_resource type="Script" uid="uid://cmvbvfyf0rirp" path="res://Scripts/player.gd" id="1_cvnsp"]
-[ext_resource type="Texture2D" uid="uid://d1o8q5eno0ye0" path="res://icon.svg" id="1_v0iea"]
+[ext_resource type="Texture2D" uid="uid://bmi7wcyy08dn3" path="res://Assets/assets/sprites/Enemies/dark-princess.png" id="2_cvnsp"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_7b57l"]
 radius = 3.1622777
@@ -14,8 +14,7 @@ script = ExtResource("1_cvnsp")
 player_sprite = NodePath("Sprite2D")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=641924450]
-scale = Vector2(0.2, 0.2)
-texture = ExtResource("1_v0iea")
+texture = ExtResource("2_cvnsp")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1263468127]
 shape = SubResource("CircleShape2D_7b57l")
