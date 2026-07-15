@@ -1,8 +1,34 @@
 [gd_scene format=3 uid="uid://t2p6476mr38l"]
 
-[node name="Normal_Enemy" type="Node2D" unique_id=1061568989]
+[ext_resource type="Script" uid="uid://7t4afle811kg" path="res://Scenes/Enemies/normal_enemy.gd" id="1_4j5cq"]
+[ext_resource type="Texture2D" uid="uid://b81ckkylniri4" path="res://Assets/assets/sprites/Enemies/Ice_Princess.png" id="1_06vei"]
+[ext_resource type="Script" uid="uid://iepwvvqawhrf" path="res://Scenes/Enemies/normal_enemy_hitbox.gd" id="3_0u4wu"]
 
-[node name="ColorRect" type="ColorRect" parent="." unique_id=831477195]
-offset_right = 40.0
-offset_bottom = 40.0
-color = Color(1, 0, 0, 1)
+[sub_resource type="CircleShape2D" id="CircleShape2D_7b57l"]
+radius = 2.236068
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_312cd"]
+radius = 3.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_cpquo"]
+radius = 15.0
+
+[node name="Normal_Enemy" type="CharacterBody2D" unique_id=955577895]
+script = ExtResource("1_4j5cq")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1927667108]
+texture = ExtResource("1_06vei")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=335762595]
+shape = SubResource("CircleShape2D_7b57l")
+
+[node name="Hitbox" type="Area2D" parent="." unique_id=858839558]
+script = ExtResource("3_0u4wu")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox" unique_id=1909061983]
+shape = SubResource("CircleShape2D_312cd")
+
+[node name="Hurtbox" type="Area2D" parent="." unique_id=2017386046]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox" unique_id=1320586931]
+shape = SubResource("CircleShape2D_cpquo")
