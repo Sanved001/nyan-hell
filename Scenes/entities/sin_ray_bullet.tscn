@@ -2,9 +2,21 @@
 
 [ext_resource type="Script" uid="uid://goxuuf2gasyy" path="res://Scenes/entities/sin_ray_bullet.gd" id="1_b0to7"]
 [ext_resource type="Texture2D" uid="uid://d1aimpicrvd0k" path="res://Assets/assets/sprites/bullets/bullet-red.png" id="2_0o3yk"]
+[ext_resource type="Script" uid="uid://dkjfok874fl35" path="res://Scenes/entities/SinRay_bullet_hitbox.gd" id="3_0g320"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_7b57l"]
+radius = 1.4142135
 
 [node name="sinRay_bullet" type="Node2D" unique_id=828867652]
 script = ExtResource("1_b0to7")
+movement_speed = 300.0
+wave_offset_value = 9000.0
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=159259706]
 texture = ExtResource("2_0o3yk")
+
+[node name="Hitbox" type="Area2D" parent="." unique_id=830675337]
+script = ExtResource("3_0g320")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox" unique_id=1270348310]
+shape = SubResource("CircleShape2D_7b57l")

@@ -1,12 +1,13 @@
 extends Node2D
 
-var sin_ray = preload("res://Scenes/moves/sin_ray.tscn")
 var spinner = preload("res://Scenes/moves/spinner.tscn") 
+
+@onready var sin_ray_timer: Timer = $SinRayTimer
 
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	pass # Replace with function body.
+	pass
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

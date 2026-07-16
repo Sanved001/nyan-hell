@@ -8,4 +8,8 @@ bullet_spawn_cooldown = 0.05
 
 [node name="Bullet_Spawn_Timer" type="Timer" parent="." unique_id=1561371448]
 
+[node name="SinRayTimer" type="Timer" parent="." unique_id=1239491383]
+wait_time = 5.0
+
 [connection signal="timeout" from="Bullet_Spawn_Timer" to="." method="_on_bullet_spawn_timer_timeout"]
+[connection signal="timeout" from="SinRayTimer" to="." method="_on_sin_ray_timer_timeout"]
