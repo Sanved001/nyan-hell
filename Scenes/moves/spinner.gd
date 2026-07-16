@@ -9,7 +9,7 @@ var bullet = preload("res://Scenes/entities/spinner_bullet.tscn")
 
 
 
-
+var rotation_speed:float = 1
 var bullet_spawn_cooldown:float = 0.2
 var my_rotation_value:float = 60
 var is_bullet_spawn_cooldown:bool = false
@@ -33,6 +33,14 @@ func _process(delta: float) -> void:
 func _on_bullet_spawn_timer_timeout() -> void:
 	var bullet_a = bullet.instantiate()
 	bullet_a.rotation = rotation
+	bullet_a.rotation_speed = rotation_speed
+	
+	
+	
 	get_parent().add_child(bullet_a)
 	bullet_a.global_position = self.global_position
 	bullet_spawn_timer.start(bullet_spawn_cooldown)
+
+func summon(m_rotation_speed:float, m_bullet_spawn_cooldown:float):
+	rotation_speed = m_rotation_speed
+	bullet_spawn_cooldown = m_bullet_spawn_cooldown

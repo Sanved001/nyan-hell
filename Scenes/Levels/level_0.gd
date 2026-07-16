@@ -9,4 +9,6 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	stage_1_bg.position.y += 25*delta
+	if stage_1_bg.position.y <= 2644:
+		stage_1_bg.position.y += 25*delta
+	

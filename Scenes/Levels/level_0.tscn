@@ -5,6 +5,78 @@
 [ext_resource type="PackedScene" uid="uid://t2p6476mr38l" path="res://Scenes/Enemies/normal_enemy.tscn" id="2_2iktx"]
 [ext_resource type="Texture2D" uid="uid://bjil81fk7ank7" path="res://Assets/assets/sprites/stages/stage-1.png" id="3_ic72l"]
 
+[sub_resource type="Animation" id="Animation_r74qd"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(331, -129)]
+}
+
+[sub_resource type="Animation" id="Animation_um5o3"]
+resource_name = "enter"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(331, -129), Vector2(329, 56)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_kj5ij"]
+_data = {
+&"RESET": SubResource("Animation_r74qd"),
+&"enter": SubResource("Animation_um5o3")
+}
+
+[sub_resource type="Animation" id="Animation_kj5ij"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(64, -129)]
+}
+
+[sub_resource type="Animation" id="Animation_1ih7c"]
+resource_name = "enter"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(64, -129), Vector2(64, 56)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_6kmi7"]
+_data = {
+&"RESET": SubResource("Animation_kj5ij"),
+&"enter": SubResource("Animation_1ih7c")
+}
+
 [node name="Level_0" type="Node2D" unique_id=1166289136]
 script = ExtResource("1_r74qd")
 
@@ -16,4 +88,15 @@ texture = ExtResource("3_ic72l")
 position = Vector2(119, 164)
 
 [node name="Normal_Enemy" parent="." unique_id=955577895 instance=ExtResource("2_2iktx")]
-position = Vector2(325, 271)
+position = Vector2(331, -129)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Normal_Enemy" unique_id=831308712]
+libraries/ = SubResource("AnimationLibrary_kj5ij")
+autoplay = &"enter"
+
+[node name="Normal_Enemy2" parent="." unique_id=1538648954 instance=ExtResource("2_2iktx")]
+position = Vector2(64, -129)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Normal_Enemy2" unique_id=1554855903]
+libraries/ = SubResource("AnimationLibrary_6kmi7")
+autoplay = &"enter"
