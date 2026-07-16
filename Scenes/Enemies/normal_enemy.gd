@@ -14,6 +14,10 @@ func _process(delta: float) -> void:
 	pass
 
 
-func summon_move_spinner(m_rotation_speed:float, m_bullet_spawn_cooldown:float):
-	pass
+func summon_move_spinner(m_bullet_rotation_speed:float,  m_spinner_rotation_value:float, m_spinner_starting_rotation:float, m_bullet_spawn_cooldown:float):
+	var spinner_instance = spinner.instantiate()
+	spinner_instance.summon(m_bullet_rotation_speed,  m_spinner_rotation_value, m_bullet_spawn_cooldown, m_spinner_starting_rotation)
 	
+	#get_parent().add_child(spinner_instance)
+	add_child(spinner_instance)
+	spinner_instance.global_position = global_position

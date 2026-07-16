@@ -41,6 +41,9 @@ func _on_bullet_spawn_timer_timeout() -> void:
 	bullet_a.global_position = self.global_position
 	bullet_spawn_timer.start(bullet_spawn_cooldown)
 
-func summon(m_rotation_speed:float, m_bullet_spawn_cooldown:float):
+func summon(m_rotation_speed:float, spinner_rotation_value:float, m_bullet_spawn_cooldown:float, m_spinner_starting_rotation:float):
 	rotation_speed = m_rotation_speed
 	bullet_spawn_cooldown = m_bullet_spawn_cooldown
+	my_rotation_value = spinner_rotation_value
+	rotation = m_spinner_starting_rotation
+		
