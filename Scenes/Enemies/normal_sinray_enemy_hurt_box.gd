@@ -1,5 +1,5 @@
 extends Area2D
-@onready var normal_spinner_enemy: CharacterBody2D = $".."
+@onready var normal_sin_ray_enemy: CharacterBody2D = $".."
 
 @export var health = 100
 
@@ -11,7 +11,7 @@ func _ready() -> void:
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	if health <= 0:
-		normal_spinner_enemy.queue_free()
+		normal_sin_ray_enemy.queue_free()
 
 
 

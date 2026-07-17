@@ -1,0 +1,36 @@
+[gd_scene format=3 uid="uid://dv3h5p7shmcfm"]
+
+[ext_resource type="Texture2D" uid="uid://bmi7wcyy08dn3" path="res://Assets/assets/sprites/Enemies/dark-princess.png" id="1_3swhb"]
+[ext_resource type="Script" uid="uid://cap4nplbkpxh4" path="res://Scenes/Enemies/normal_sin_ray_enemy.gd" id="1_kjqx7"]
+[ext_resource type="Script" uid="uid://dbdvs4rn5sxff" path="res://Scenes/Enemies/normal_sinray_enemy_hurt_box.gd" id="2_5jki8"]
+[ext_resource type="Script" uid="uid://bjlktb8bdbfdl" path="res://Scenes/Enemies/normal_sinray_enemy_hit_box.gd" id="3_4vssl"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_3swhb"]
+radius = 2.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_7b57l"]
+radius = 16.03122
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_312cd"]
+radius = 2.236068
+
+[node name="normal_SinRay_Enemy" type="CharacterBody2D" unique_id=797116520]
+script = ExtResource("1_kjqx7")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1125125349]
+texture = ExtResource("1_3swhb")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1904637085]
+shape = SubResource("CircleShape2D_3swhb")
+
+[node name="HurtBox" type="Area2D" parent="." unique_id=157207479]
+script = ExtResource("2_5jki8")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HurtBox" unique_id=450981764]
+shape = SubResource("CircleShape2D_7b57l")
+
+[node name="HitBox" type="Area2D" parent="." unique_id=107469030]
+script = ExtResource("3_4vssl")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitBox" unique_id=89148968]
+shape = SubResource("CircleShape2D_312cd")

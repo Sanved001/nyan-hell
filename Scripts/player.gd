@@ -27,6 +27,7 @@ var play_area_size:Vector2
 
 
 
+
 const SPEED = 300.0
 
 func _ready() -> void:
@@ -64,7 +65,8 @@ func _physics_process(delta: float) -> void:
 	if Input.is_action_pressed("shoot"):
 		Spawn_Bullets()
 	
-	
+	if Input.is_action_pressed("shift"):
+		velocity -= Vector2(velocity.x/2, velocity.y/2)
 	move_and_slide()
 
 

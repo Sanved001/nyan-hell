@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://t2p6476mr38l"]
 
-[ext_resource type="Script" uid="uid://7t4afle811kg" path="res://Scenes/Enemies/normal_enemy.gd" id="1_4j5cq"]
+[ext_resource type="Script" uid="uid://7t4afle811kg" path="res://Scenes/Enemies/normal_spinner_enemy.gd" id="1_4j5cq"]
 [ext_resource type="Texture2D" uid="uid://b81ckkylniri4" path="res://Assets/assets/sprites/Enemies/Ice_Princess.png" id="1_06vei"]
 [ext_resource type="Script" uid="uid://iepwvvqawhrf" path="res://Scenes/Enemies/normal_spinner_enemy_hitbox.gd" id="3_0u4wu"]
 [ext_resource type="Script" uid="uid://dvrx0rmdb3b5t" path="res://Scenes/Enemies/normal_spinner_enemy_hurtbox.gd" id="4_mtu75"]

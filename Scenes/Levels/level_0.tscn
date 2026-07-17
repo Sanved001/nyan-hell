@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://cw6pb8akb046r" path="res://Scenes/Levels/level_0.gd" id="1_r74qd"]
 [ext_resource type="PackedScene" uid="uid://bsv37cxgkg8n8" path="res://Scenes/player.tscn" id="1_y8ppt"]
-[ext_resource type="PackedScene" uid="uid://t2p6476mr38l" path="res://Scenes/Enemies/normal_enemy.tscn" id="2_2iktx"]
+[ext_resource type="PackedScene" uid="uid://t2p6476mr38l" path="res://Scenes/Enemies/normal_spinner_enemy.tscn" id="2_2iktx"]
 [ext_resource type="Texture2D" uid="uid://bjil81fk7ank7" path="res://Assets/assets/sprites/stages/stage-1.png" id="3_ic72l"]
 
 [sub_resource type="Animation" id="Animation_r74qd"]
