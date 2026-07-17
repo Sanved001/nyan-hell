@@ -9,6 +9,7 @@ offset_right = 669.0
 offset_bottom = 509.0
 
 [node name="SubViewportContainer" type="SubViewportContainer" parent="." unique_id=1192843087]
+custom_minimum_size = Vector2(384, 432)
 offset_left = 32.0
 offset_top = 24.0
 offset_right = 416.0

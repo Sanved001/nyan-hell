@@ -2,7 +2,7 @@ extends Node2D
 
 var spinner = preload("res://Scenes/moves/spinner.tscn") 
 
-@onready var sin_ray_timer: Timer = $SinRayTimer
+
 
 @export var child_disown_time:float = 2
 

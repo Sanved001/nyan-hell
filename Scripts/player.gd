@@ -75,7 +75,7 @@ func _on_hurt_box_area_entered(area: Area2D) -> void:
 		return
 	if OS.is_debug_build():
 		print("Player Came In contact with Entity:%s" % area.entity_name, "(%s)" % area.entity_type)
-	get_tree().reload_current_scene()
+	get_tree().reload_current_scene.call_deferred()
 
 # Spawn Bullets
 var spawn_bullet_tick:bool = false
