@@ -14,6 +14,7 @@ var bullet = preload("res://Scenes/entities/sin_ray_bullet.tscn")
 
 
 
+
 var sin_ray_time:float = 3.5
 var is_bullet_spawn_cooldown:bool = false
 var player_global_pos:Vector2 = Vector2.ZERO
@@ -23,7 +24,6 @@ var plane_to_player:Vector2
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	sin_ray_timer_start()
 	
 	player_global_pos = PlayerManager.get_player_global_position()
 	line_to_player = player_global_pos - global_position
@@ -62,3 +62,10 @@ func sin_ray_timer_start():
 
 func _on_sin_ray_timer_timeout() -> void:
 	queue_free()
+
+# func summon_move_sinray(m_bullet_rotation_speed:float,
+	#m_spinner_rotation_value:float, 
+	#m_spinner_starting_rotation:float, 
+	#m_bullet_spawn_cooldown:float):
+func summon():
+	sin_ray_timer.start()

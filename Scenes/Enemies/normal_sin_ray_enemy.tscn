@@ -12,7 +12,7 @@ radius = 2.0
 radius = 16.03122
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_312cd"]
-radius = 2.236068
+radius = 3.0
 
 [node name="normal_SinRay_Enemy" type="CharacterBody2D" unique_id=797116520]
 script = ExtResource("1_kjqx7")
@@ -24,12 +24,16 @@ texture = ExtResource("1_3swhb")
 shape = SubResource("CircleShape2D_3swhb")
 
 [node name="HurtBox" type="Area2D" parent="." unique_id=157207479]
+collision_layer = 4
+collision_mask = 8
 script = ExtResource("2_5jki8")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HurtBox" unique_id=450981764]
 shape = SubResource("CircleShape2D_7b57l")
 
 [node name="HitBox" type="Area2D" parent="." unique_id=107469030]
+collision_layer = 2
+collision_mask = 4
 script = ExtResource("3_4vssl")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HitBox" unique_id=89148968]
