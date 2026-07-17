@@ -1,14 +1,15 @@
 extends Node2D
-@onready var stage_1_bg: Sprite2D = $Stage1_Bg
 
-
+var Bullet_Speed:float = 10.0
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	GameManager.current_level = self 
+	pass # Replace with function body.
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	if stage_1_bg.position.y <= 2644:
-		stage_1_bg.position.y += 25*delta
+	position.y -= Bullet_Speed
 	
+	
+	if global_position.x > 640 or global_position.y > 480 or global_position.x < 0 or global_position.y < 0:
+		queue_free()

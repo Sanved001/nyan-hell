@@ -12,6 +12,7 @@ radius = 1.0
 texture = ExtResource("1_7s732")
 
 [node name="HitBox" type="Area2D" parent="." unique_id=1579250802]
+collision_layer = 2
 script = ExtResource("2_tat5c")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HitBox" unique_id=1662920847]

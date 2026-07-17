@@ -4,6 +4,7 @@ var spinner = preload("res://Scenes/moves/spinner.tscn")
 
 @onready var sin_ray_timer: Timer = $SinRayTimer
 
+@export var child_disown_time:float = 2
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -22,3 +23,9 @@ func summon_move_spinner(m_bullet_rotation_speed:float,  m_spinner_rotation_valu
 	#get_parent().add_child(spinner_instance)
 	add_child(spinner_instance)
 	spinner_instance.global_position = global_position
+
+
+func disown_child(child:Node2D):
+	if not is_instance_valid(child):
+		return
+	get_parent().add_child(child)

@@ -35,9 +35,9 @@ func _on_bullet_spawn_timer_timeout() -> void:
 	bullet_a.rotation = rotation
 	bullet_a.rotation_speed = rotation_speed
 	
-	
-	
-	get_parent().add_child(bullet_a)
+	GameManager.get_Current_Level().add_child(bullet_a)
+	#get_tree().current_scene.add_child(bullet_a)
+
 	bullet_a.global_position = self.global_position
 	bullet_spawn_timer.start(bullet_spawn_cooldown)
 

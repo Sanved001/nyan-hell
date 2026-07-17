@@ -2,7 +2,8 @@
 
 [ext_resource type="Script" uid="uid://7t4afle811kg" path="res://Scenes/Enemies/normal_enemy.gd" id="1_4j5cq"]
 [ext_resource type="Texture2D" uid="uid://b81ckkylniri4" path="res://Assets/assets/sprites/Enemies/Ice_Princess.png" id="1_06vei"]
-[ext_resource type="Script" uid="uid://iepwvvqawhrf" path="res://Scenes/Enemies/normal_enemy_hitbox.gd" id="3_0u4wu"]
+[ext_resource type="Script" uid="uid://iepwvvqawhrf" path="res://Scenes/Enemies/normal_spinner_enemy_hitbox.gd" id="3_0u4wu"]
+[ext_resource type="Script" uid="uid://dvrx0rmdb3b5t" path="res://Scenes/Enemies/normal_spinner_enemy_hurtbox.gd" id="4_mtu75"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_7b57l"]
 radius = 2.236068
@@ -23,12 +24,18 @@ texture = ExtResource("1_06vei")
 shape = SubResource("CircleShape2D_7b57l")
 
 [node name="Hitbox" type="Area2D" parent="." unique_id=858839558]
+collision_layer = 2
 script = ExtResource("3_0u4wu")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox" unique_id=1909061983]
 shape = SubResource("CircleShape2D_312cd")
 
 [node name="Hurtbox" type="Area2D" parent="." unique_id=2017386046]
+collision_layer = 4
+collision_mask = 8
+script = ExtResource("4_mtu75")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox" unique_id=1320586931]
 shape = SubResource("CircleShape2D_cpquo")
+
+[connection signal="area_entered" from="Hurtbox" to="Hurtbox" method="_on_area_entered"]

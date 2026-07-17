@@ -16,6 +16,7 @@ wave_offset_value = 9000.0
 texture = ExtResource("2_0o3yk")
 
 [node name="Hitbox" type="Area2D" parent="." unique_id=830675337]
+collision_layer = 2
 script = ExtResource("3_0g320")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox" unique_id=1270348310]
