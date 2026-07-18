@@ -16,7 +16,11 @@ func _process(delta: float) -> void:
 
 
 
+#func _on_area_entered(area: Area2D) -> void:
+
+
 func _on_area_entered(area: Area2D) -> void:
 	if not area is Hitbox:
 		return
 	health -= area.entity_damage
+	

@@ -38,3 +38,8 @@ script = ExtResource("3_4vssl")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HitBox" unique_id=89148968]
 shape = SubResource("CircleShape2D_312cd")
+
+[node name="Summon_Cooldown_Timer" type="Timer" parent="." unique_id=1725372859]
+
+[connection signal="area_entered" from="HurtBox" to="HurtBox" method="_on_area_entered"]
+[connection signal="timeout" from="Summon_Cooldown_Timer" to="." method="_on_summon_cooldown_timer_timeout"]

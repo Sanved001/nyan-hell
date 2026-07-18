@@ -2,13 +2,14 @@ extends Node2D
 
 var sin_ray = preload("res://Scenes/moves/sin_ray.tscn") 
 
-@onready var sin_ray_timer: Timer = $SinRayTimer
+@onready var summon_cooldown_timer: Timer = $Summon_Cooldown_Timer
 
-@export var child_disown_time:float = 2
+
+@export var summon_cooldown:float = 2
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	summon_move_sinray()
+	summon_cooldown_timer.start(summon_cooldown)
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -29,3 +30,12 @@ func disown_child(child:Node2D):
 	if not is_instance_valid(child):
 		return
 	get_parent().add_child(child)
+
+
+#func _on_summon_cooldown_timeout() -> void:
+	
+
+
+func _on_summon_cooldown_timer_timeout() -> void:
+	summon_move_sinray()
+	summon_cooldown_timer.start(summon_cooldown)

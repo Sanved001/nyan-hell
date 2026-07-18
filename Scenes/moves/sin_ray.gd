@@ -32,12 +32,14 @@ func _ready() -> void:
 	plane_to_player = direction_to_player * line_length
 	if OS.is_debug_build():
 		print("Player is %spx away" % line_to_player.length())
-	_on_bullet_spawn_timer_timeout()
+	
 
 
 
 var m_tick:bool = false
 func _on_bullet_spawn_timer_timeout() -> void:
+	if not bullet_spawn_timer.is_stopped():
+		return
 	if m_tick:
 		m_tick = false
 	else: m_tick = true
@@ -67,5 +69,8 @@ func _on_sin_ray_timer_timeout() -> void:
 	#m_spinner_rotation_value:float, 
 	#m_spinner_starting_rotation:float, 
 	#m_bullet_spawn_cooldown:float):
-func summon():
+func summon(lasting_time:float = 1 , bullet_cooldown:float = 0.001):
+	sin_ray_time = lasting_time
+	bullet_spawn_cooldown = bullet_cooldown
 	sin_ray_timer.start()
+	_on_bullet_spawn_timer_timeout()
