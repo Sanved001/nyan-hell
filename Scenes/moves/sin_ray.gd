@@ -30,8 +30,7 @@ func _ready() -> void:
 	direction_to_player = line_to_player.normalized()
 	
 	plane_to_player = direction_to_player * line_length
-	if OS.is_debug_build():
-		print("Player is %spx away" % line_to_player.length())
+
 	
 
 

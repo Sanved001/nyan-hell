@@ -1,0 +1,38 @@
+[gd_scene format=3 uid="uid://umctdc6olvop"]
+
+[ext_resource type="Script" uid="uid://dgy3l2iajfhru" path="res://Scenes/Enemies/weak_homing_bullet_enemy.gd" id="1_pjp6k"]
+[ext_resource type="Texture2D" uid="uid://cf42uylhfkw80" path="res://Assets/assets/sprites/Enemies/clown-head.png" id="1_pvlvf"]
+[ext_resource type="Script" uid="uid://crxlcik4bq1t" path="res://Scenes/Enemies/weak_homing_bullet_enemy_hitbox.gd" id="2_jb5wg"]
+[ext_resource type="Script" uid="uid://c3wb4vv3mfoel" path="res://Scenes/Enemies/weak_homing_bullet_enemy_hurtbox.gd" id="3_24fi2"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_7b57l"]
+radius = 1.4142135
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_312cd"]
+radius = 2.236068
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_cpquo"]
+radius = 11.401754
+
+[node name="weak_homing_bullet_enemy" type="CharacterBody2D" unique_id=1639752812]
+script = ExtResource("1_pjp6k")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1233373627]
+texture = ExtResource("1_pvlvf")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=786458167]
+shape = SubResource("CircleShape2D_7b57l")
+
+[node name="Hitbox" type="Area2D" parent="." unique_id=1529384452]
+script = ExtResource("2_jb5wg")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox" unique_id=335901377]
+shape = SubResource("CircleShape2D_312cd")
+
+[node name="Hurtbox" type="Area2D" parent="." unique_id=1221945079]
+script = ExtResource("3_24fi2")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox" unique_id=1395113332]
+shape = SubResource("CircleShape2D_cpquo")
+
+[connection signal="area_entered" from="Hurtbox" to="Hurtbox" method="_on_area_entered"]

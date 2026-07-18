@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://bupf6pbrpbt3f"]
+
+[ext_resource type="Texture2D" uid="uid://coshrq33lsyal" path="res://Assets/assets/sprites/bullets/Big_blue_white_bullet.png" id="1_cwtds"]
+
+[node name="weak_homing_bullet" type="Node2D" unique_id=1987562910]
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=65729976]
+texture = ExtResource("1_cwtds")
