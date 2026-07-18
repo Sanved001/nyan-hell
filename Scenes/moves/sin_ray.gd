@@ -53,8 +53,7 @@ func _on_bullet_spawn_timer_timeout() -> void:
 	if m_tick: bullet_a.wave_offset_value = 50
 	else: bullet_a.wave_offset_value = -50
 	
-	
-	get_parent().add_child(bullet_a)
+	GameManager.get_Current_Level().add_child(bullet_a)
 	bullet_a.global_position = self.global_position
 	bullet_spawn_timer.start(bullet_spawn_cooldown)
 

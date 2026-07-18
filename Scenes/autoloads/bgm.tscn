@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://d1ugrtfk5g704"]
+
+[ext_resource type="AudioStream" uid="uid://cg8b301xnjm4x" path="res://Assets/DO_NOT_PUSH/assets/BGM/banjo_something.mp3" id="1_vg1hr"]
+
+[node name="BGM" type="AudioStreamPlayer2D" unique_id=139931219]
+stream = ExtResource("1_vg1hr")
+autoplay = true
+parameters/looping = true

@@ -1,0 +1,16 @@
+[gd_scene format=3 uid="uid://c507abibpse27"]
+
+[ext_resource type="Script" uid="uid://c3k6atfkby608" path="res://Scenes/entities/flying_bullet.gd" id="1_syf1s"]
+[ext_resource type="Texture2D" uid="uid://djxi450ku8dad" path="res://Assets/assets/sprites/bullets/flying_bullets.png" id="2_m6aqy"]
+
+[node name="Flying_Bullet" type="Node2D" unique_id=1565057366]
+script = ExtResource("1_syf1s")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1518155802]
+texture = ExtResource("2_m6aqy")
+
+[node name="Warn_Line" type="ColorRect" parent="." unique_id=1079909213]
+offset_left = -1.0
+offset_right = 1.0
+offset_bottom = 649.0
+color = Color(1, 0, 0, 1)

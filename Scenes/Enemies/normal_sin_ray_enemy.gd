@@ -5,7 +5,7 @@ var sin_ray = preload("res://Scenes/moves/sin_ray.tscn")
 @onready var summon_cooldown_timer: Timer = $Summon_Cooldown_Timer
 
 
-@export var summon_cooldown:float = 2
+@export var summon_cooldown:float = 3
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
