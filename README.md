@@ -46,7 +46,14 @@ By submitting a Pull Request, patch, or code contribution to this repository, yo
 4. **Attribution:** The project owner agrees to credit you (via your GitHub profile, alias, or name) in the game's credits, though this does not grant you any ownership stake in the final product.
 
 
-### Assets Used:
-## BGM:
+
+### Credits:
+Writer: who?
+Art: Sllia & Sanved
+Programming: Sanved
+Playtesters: who? & Sllia
+
+## Assets Used:
+# BGM:
 CC0 - https://opengameart.org/content/banjosomething
 CC0 - https://opengameart.org/content/fd
