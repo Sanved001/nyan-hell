@@ -24,12 +24,15 @@ texture = ExtResource("1_pvlvf")
 shape = SubResource("CircleShape2D_7b57l")
 
 [node name="Hitbox" type="Area2D" parent="." unique_id=1529384452]
+collision_layer = 2
 script = ExtResource("2_jb5wg")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox" unique_id=335901377]
 shape = SubResource("CircleShape2D_312cd")
 
 [node name="Hurtbox" type="Area2D" parent="." unique_id=1221945079]
+collision_layer = 4
+collision_mask = 8
 script = ExtResource("3_24fi2")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox" unique_id=1395113332]

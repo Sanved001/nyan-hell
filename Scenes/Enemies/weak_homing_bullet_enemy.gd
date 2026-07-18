@@ -12,6 +12,9 @@ extends CharacterBody2D
 
 @export var offset_x:float = 0.0
 @export var offset_y:float = 0.0
+
+@export var piviot_point:float = 54
+
 @export var speed_increase_value:float = 1.0
 @export var max_speed = Vector2(50,50)
 var speed:Vector2 = Vector2(0,0)
@@ -26,7 +29,7 @@ func _ready() -> void:
 var Fire_once_at_y_216:bool = true
 func _process(delta: float) -> void:
 	
-	if position.y < 216:
+	if position.y < piviot_point:
 		if start_on == 0:
 			position += Vector2(0,speed.y*delta)
 			speed.y += speed_increase_value*delta
@@ -53,20 +56,20 @@ func _process(delta: float) -> void:
 			speed.y = clampf(speed.y, 1, max_speed.y)
 	else:
 		if Fire_once_at_y_216:
-			speed = Vector2(0,20)
+			#speed.x = 0
 			Fire_once_at_y_216 = false
 		if end_on == 0:
 			position += Vector2(0,speed.y*delta)
 		elif end_on == 1:
 			position += Vector2(speed.x*delta,speed.y*delta)
 			speed.x -= speed_increase_value*delta
-			speed.y -= speed_increase_value * delta
-			speed.y = clampf(speed.y, 1, max_speed.y)
+			#speed.y -= speed_increase_value * delta
+			#speed.y = clampf(speed.y, 1, max_speed.y)
 		elif end_on == 2:
 			position += Vector2(speed.x*delta,speed.y*delta)
 			speed.x += speed_increase_value*delta
-			speed.y -= speed_increase_value * delta
-			speed.y = clampf(speed.y, 1, max_speed.y)
+			#speed.y -= speed_increase_value * delta
+			#speed.y = clampf(speed.y, 1, max_speed.y)
 	
 	
 	if global_position.x > 2000 or global_position.y > 2000 or global_position.x < -2000 or global_position.y < -2000:
@@ -74,7 +77,7 @@ func _process(delta: float) -> void:
 
 
 # 384, 432
-func summon(m_start_on:String, m_end_on:String, m_offset_x:float, m_offset_y:float):
+func summon(m_start_on:String, m_end_on:String, m_offset_x:float, m_offset_y:float, m_speed_increase_value:float = 1, m_max_speed:Vector2 = Vector2(50,50), m_piviot_point:float = 54):
 	if m_start_on == "top":
 		position = Vector2(192, -50)
 		start_on = 0
@@ -97,3 +100,6 @@ func summon(m_start_on:String, m_end_on:String, m_offset_x:float, m_offset_y:flo
 	
 	offset_x = m_offset_x
 	offset_y = m_offset_y 
+	speed_increase_value = m_speed_increase_value
+	max_speed = m_max_speed
+	piviot_point = m_piviot_point

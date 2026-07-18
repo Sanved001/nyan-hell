@@ -1,6 +1,13 @@
 # nyan-hell
 A Retro Bullet Hell made for Godot Wild Jam #95 inspired by Touhou.
 
+Please install the following files to "Assets/DO_NOT_PUSH/assets/BGM/""
+https://opengameart.org/content/banjosomething
+https://opengameart.org/content/fd
+otherwise the game will not boot
+
+
+
 
 ## License & Usage Notice
 

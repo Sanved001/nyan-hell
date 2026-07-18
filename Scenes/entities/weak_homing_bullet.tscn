@@ -1,8 +1,10 @@
 [gd_scene format=3 uid="uid://bupf6pbrpbt3f"]
 
 [ext_resource type="Texture2D" uid="uid://coshrq33lsyal" path="res://Assets/assets/sprites/bullets/Big_blue_white_bullet.png" id="1_cwtds"]
+[ext_resource type="Script" uid="uid://bwe7sw1718ncy" path="res://Scenes/entities/weak_homing_bullet.gd" id="1_hh2fv"]
 
 [node name="weak_homing_bullet" type="Node2D" unique_id=1987562910]
+script = ExtResource("1_hh2fv")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=65729976]
 texture = ExtResource("1_cwtds")
