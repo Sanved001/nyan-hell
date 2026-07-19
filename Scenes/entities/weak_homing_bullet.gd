@@ -13,9 +13,8 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	position += Vector2(0,0)
-	position = Vector2(move_toward(position.x, player_global_position.x, speed_multiplyer*delta),\
-		move_toward(position.y, player_global_position.y, speed_multiplyer*delta))
+	position = Vector2(move_toward(global_position.x, player_global_position.x, speed_multiplyer*delta),\
+		move_toward(global_position.y, player_global_position.y, speed_multiplyer*delta))
 
 
 func _on_locate_player_timer_timeout() -> void:
