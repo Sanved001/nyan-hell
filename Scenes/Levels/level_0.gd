@@ -55,8 +55,8 @@ func _process(delta: float) -> void:
 			#summon_normal_spinner_enemy(Vector2(50, -200),Vector2(50, 200), 1, 10, 10, 60, 0, 0.02)
 			#summon_normal_spinner_enemy(Vector2(292, -200),Vector2(292, 200), 1, -10, 10, 60, 0, 0.02)
 			
-			summon_normal_spinner_enemy(Vector2(20, -20), Vector2(120, 60), 1.5, 20, 10, 60, 200, 0.05) # Top Left
-			summon_normal_spinner_enemy(Vector2(320, -20), Vector2(340, 60), 1.5, 20, -10, -60, 160, 0.05) # Top Right
+			summon_normal_spinner_enemy(Vector2(20, -20), Vector2(120, 60), 1.5, 20, 10, 60, 200, 0.1) # Top Left
+			summon_normal_spinner_enemy(Vector2(320, -20), Vector2(340, 60), 1.5, 20, -10, -60, 160, 0.1) # Top Right
 
 
 	if 4790.0 < stage_1_bg.position.y:
