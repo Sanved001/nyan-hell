@@ -2,6 +2,10 @@
 
 [ext_resource type="Texture2D" uid="uid://coshrq33lsyal" path="res://Assets/assets/sprites/bullets/Big_blue_white_bullet.png" id="1_cwtds"]
 [ext_resource type="Script" uid="uid://bwe7sw1718ncy" path="res://Scenes/entities/weak_homing_bullet.gd" id="1_hh2fv"]
+[ext_resource type="Script" uid="uid://dcr12a2dl5cm5" path="res://Scenes/entities/hitbox.gd" id="3_olrbh"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_7b57l"]
+radius = 2.0
 
 [node name="weak_homing_bullet" type="Node2D" unique_id=1987562910]
 script = ExtResource("1_hh2fv")
@@ -10,7 +14,9 @@ script = ExtResource("1_hh2fv")
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("1_cwtds")
 
-[node name="Locate_Player_Timer" type="Timer" parent="." unique_id=717072754]
-wait_time = 0.009999999999999998
+[node name="Hitbox" type="Area2D" parent="." unique_id=1533096284]
+collision_layer = 2
+script = ExtResource("3_olrbh")
 
-[connection signal="timeout" from="Locate_Player_Timer" to="." method="_on_locate_player_timer_timeout"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox" unique_id=708023985]
+shape = SubResource("CircleShape2D_7b57l")

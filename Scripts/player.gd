@@ -40,7 +40,7 @@ func _ready() -> void:
 		print("Margin Y: %s" % margin_y)
 	
 	
-	play_area_size = get_viewport_rect().size
+	play_area_size = Vector2(384,432)
 
 
 func _physics_process(delta: float) -> void:

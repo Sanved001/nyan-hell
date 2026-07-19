@@ -2,6 +2,9 @@ extends CharacterBody2D
 
 @onready var spawn_bullet_timer: Timer = $SpawnBulletTimer
 
+
+
+
 var weak_homing_bullet = preload("res://Scenes/entities/weak_homing_bullet.tscn")
 
 # 0 = top
@@ -43,15 +46,15 @@ func _process(delta: float) -> void:
 		if start_on == 0:
 			position += Vector2(0,speed.y*delta)
 			speed.y += speed_increase_value*delta
-			speed.y = clampf(speed.y, speed.y, max_speed.y)
+			speed.y = clampf(speed.y, 1, max_speed.y)
 		if start_on == 1:
 			position += Vector2(0,speed.y*delta)
 			speed.y += speed_increase_value*delta
-			speed.y = clampf(speed.y, speed.y, max_speed.y)
+			speed.y = clampf(speed.y, 1, max_speed.y)
 		if start_on == 2: 
 			position += Vector2(0,speed.y*delta)
 			speed.y += speed_increase_value*delta
-			speed.y = clampf(speed.y, speed.y, max_speed.y)
+			speed.y = clampf(speed.y, 1, max_speed.y)
 		if start_on == 3: 
 			position += Vector2(speed.x*delta, speed.y*delta)
 			speed.x -= speed_increase_value*delta
@@ -82,8 +85,10 @@ func _process(delta: float) -> void:
 			#speed.y = clampf(speed.y, 1, max_speed.y)
 	
 	
-	if global_position.x > 2000 or global_position.y > 2000 or global_position.x < -2000 or global_position.y < -2000:
-		queue_free()
+		# clear the enemy if it's somewhat out of the viewport
+	if global_position.x > 384 or global_position.y > 432 or global_position.x < -200 or global_position.y < -200:
+		#print(global_position)
+		queue_free() 
 
 
 # 384, 432
@@ -115,9 +120,23 @@ func summon(m_start_on:String, m_end_on:String, m_offset_x:float, m_offset_y:flo
 	piviot_point = m_piviot_point
 
 
+
+
+
+
+
+
 func _on_spawn_bullet_timer_timeout() -> void:
-	var homing_bullet = weak_homing_bullet.instantiate()
 	
+	var homing_bullet = weak_homing_bullet.instantiate()
 	GameManager.get_Current_Level().add_child(homing_bullet)
+	
 	homing_bullet.global_position = global_position
+
+	var player_pos = PlayerManager.get_player_global_position()
+	
+	# 3. angle from the enemy to the player
+	var base_angle = global_position.angle_to_point(player_pos)
+	homing_bullet.rotation = base_angle 
+
 	spawn_bullet_timer.start()

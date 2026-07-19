@@ -1,5 +1,5 @@
 extends Node2D
-@onready var stage_1_bg: Sprite2D = $Stage1_Bg
+@onready var stage_1_bg: Node2D = $Stage1_Bg
 
 var stage_music = preload("res://Assets/DO_NOT_PUSH/assets/BGM/banjo_something.mp3")
 var boss_music = preload("res://Assets/DO_NOT_PUSH/assets/BGM/f_d.mp3")
@@ -27,16 +27,18 @@ func _process(delta: float) -> void:
 	if not minus1900:
 		if -1900.0 < stage_1_bg.position.y:
 			minus1900 = true
+			summon_Flying_Bullet(0.2, 500, -30)
 			summon_Flying_Bullet(0.2, 500)
+			summon_Flying_Bullet(0.2, 500, 30)
 			
 			var x_offset_list = [0.0, 25.0, 50.0]
 			for m_XOL in x_offset_list: 
 				# TOP LEFT TO BOTTOM RIGHT
 				for i in range(8):
-					summon_weak_homing_bullet_enemy(i*2, "top_left", "right", m_XOL, 0.0, 10, Vector2(100,100), 0)
+					summon_weak_homing_bullet_enemy(i*3, "top_left", "right", m_XOL, 0.0, 10, Vector2(100,100), 0)
 				# TOP RIGHT TO BOTTOM LEFT
 				for i in range(8):
-					summon_weak_homing_bullet_enemy(i*2, "top_right", "left", m_XOL, 0.0, 10, Vector2(100,100), 0)
+					summon_weak_homing_bullet_enemy(i*3, "top_right", "left", m_XOL, 0.0, 10, Vector2(100,100), 0)
 
 
 
@@ -52,6 +54,8 @@ func _process(delta: float) -> void:
 
 func summon_Flying_Bullet(wait_time:float, flying_bullet_speed:float, offset_x:float = 0.0):
 	await get_tree().create_timer(wait_time).timeout
+	if not is_instance_valid(self): return
+	
 	var m_flying_bullet = flying_bullet.instantiate()
 	
 	m_flying_bullet.my_speed = flying_bullet_speed

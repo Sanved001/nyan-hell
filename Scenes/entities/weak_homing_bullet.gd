@@ -1,24 +1,13 @@
 extends Node2D
-@onready var locate_player_timer: Timer = $Locate_Player_Timer
 
-
-var player_global_position
-var speed_multiplyer:float = 1
-# Called when the node enters the scene tree for the first time.
-func _ready() -> void:
-	_on_locate_player_timer_timeout()
-	#player_global_position = PlayerManager.get_player_global_position()
-	
-
+@export var speed: float = 250.0 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	position = Vector2(move_toward(global_position.x, player_global_position.x, speed_multiplyer*delta),\
-		move_toward(global_position.y, player_global_position.y, speed_multiplyer*delta))
+	global_position += Vector2.RIGHT.rotated(rotation) * speed * delta
 
 
-func _on_locate_player_timer_timeout() -> void:
-	player_global_position = PlayerManager.get_player_global_position()
-	var distance_to_player = player_global_position - global_position
-	speed_multiplyer = distance_to_player.length()/10
-	locate_player_timer.start()
+	# clear the bullet if it's out of the viewport
+	if global_position.x > 640 or global_position.y > 480 or global_position.x < 0 or global_position.y < 0:
+		#print(global_position)
+		queue_free() 

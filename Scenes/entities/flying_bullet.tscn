@@ -2,9 +2,20 @@
 
 [ext_resource type="Script" uid="uid://c3k6atfkby608" path="res://Scenes/entities/flying_bullet.gd" id="1_syf1s"]
 [ext_resource type="Texture2D" uid="uid://djxi450ku8dad" path="res://Assets/assets/sprites/bullets/flying_bullets.png" id="2_m6aqy"]
+[ext_resource type="Script" uid="uid://8e0u5q6urjww" path="res://Scenes/entities/flying_bullet_hitbox.gd" id="3_j2jo3"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_scy8k"]
+size = Vector2(8, 20)
 
 [node name="Flying_Bullet" type="Node2D" unique_id=1565057366]
 script = ExtResource("1_syf1s")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1518155802]
 texture = ExtResource("2_m6aqy")
+
+[node name="Hitbox" type="Area2D" parent="." unique_id=1164817597]
+collision_layer = 2
+script = ExtResource("3_j2jo3")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox" unique_id=1377515179]
+shape = SubResource("RectangleShape2D_scy8k")

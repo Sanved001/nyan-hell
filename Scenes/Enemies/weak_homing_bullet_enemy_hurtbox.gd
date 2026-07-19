@@ -2,7 +2,7 @@ extends Area2D
 @onready var weak_homing_bullet_enemy: CharacterBody2D = $".."
 
 
-@export var health = 50
+@export var health = 400
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
