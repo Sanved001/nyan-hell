@@ -35,10 +35,10 @@ func _process(delta: float) -> void:
 			for m_XOL in x_offset_list: 
 				# TOP LEFT TO BOTTOM RIGHT
 				for i in range(8):
-					summon_weak_homing_bullet_enemy(i*3, "top_left", "right", m_XOL, 0.0, 10, Vector2(100,100), 0)
+					summon_weak_homing_bullet_enemy(i*3, "top_left", "right", m_XOL, 0.0, 10, Vector2(100,100), 0, 8.0)
 				# TOP RIGHT TO BOTTOM LEFT
 				for i in range(8):
-					summon_weak_homing_bullet_enemy(i*3, "top_right", "left", m_XOL, 0.0, 10, Vector2(100,100), 0)
+					summon_weak_homing_bullet_enemy(i*3, "top_right", "left", m_XOL, 0.0, 10, Vector2(100,100), 0, 8.0)
 
 
 
@@ -65,8 +65,9 @@ func summon_Flying_Bullet(wait_time:float, flying_bullet_speed:float, offset_x:f
 	m_flying_bullet.global_position.x = clampf(m_flying_bullet.global_position.x , 0, 384)
 	m_flying_bullet.launch()
 
-func summon_weak_homing_bullet_enemy(wait_time:float ,m_start_on:String, m_end_on:String, m_offset_x:float, m_offset_y:float, m_speed_increase_value:float = 1, m_max_speed:Vector2 = Vector2(50,50), piviot_point:float = 54):
+func summon_weak_homing_bullet_enemy(wait_time:float ,m_start_on:String, m_end_on:String, m_offset_x:float, m_offset_y:float, m_speed_increase_value:float = 1, m_max_speed:Vector2 = Vector2(50,50), piviot_point:float = 54,  m_stop_shooting_after:float = 10.0):
 	await get_tree().create_timer(wait_time).timeout
 	var m_homing_bullet_enemy = weak_homing_bullet_enemy.instantiate()
 	m_homing_bullet_enemy.summon(m_start_on, m_end_on, m_offset_x, m_offset_y, m_speed_increase_value, m_max_speed, piviot_point)
 	add_child(m_homing_bullet_enemy)
+	m_homing_bullet_enemy.stop_shooting( m_stop_shooting_after)

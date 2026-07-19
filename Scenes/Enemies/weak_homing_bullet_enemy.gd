@@ -29,7 +29,7 @@ var weak_homing_bullet = preload("res://Scenes/entities/weak_homing_bullet.tscn"
 
 var speed:Vector2 = Vector2(0,0)
 
-
+var can_shoot = true
 func _ready() -> void:
 	_on_spawn_bullet_timer_timeout()
 	
@@ -86,7 +86,7 @@ func _process(delta: float) -> void:
 	
 	
 		# clear the enemy if it's somewhat out of the viewport
-	if global_position.x > 384 or global_position.y > 432 or global_position.x < -200 or global_position.y < -200:
+	if global_position.x > 500 or global_position.y > 500 or global_position.x < -200 or global_position.y < -200:
 		#print(global_position)
 		queue_free() 
 
@@ -127,6 +127,8 @@ func summon(m_start_on:String, m_end_on:String, m_offset_x:float, m_offset_y:flo
 
 
 func _on_spawn_bullet_timer_timeout() -> void:
+	if not can_shoot:
+		return
 	
 	var homing_bullet = weak_homing_bullet.instantiate()
 	GameManager.get_Current_Level().add_child(homing_bullet)
@@ -140,3 +142,8 @@ func _on_spawn_bullet_timer_timeout() -> void:
 	homing_bullet.rotation = base_angle 
 
 	spawn_bullet_timer.start()
+
+func stop_shooting(value:float):
+	await get_tree().create_timer(value).timeout
+	can_shoot = false
+	
