@@ -21,7 +21,7 @@ var stage_music_toggle = false
 var minus1900:bool = false
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	if stage_1_bg.position.y <= 2644:
+	if stage_1_bg.position.y <= 4790:
 		stage_1_bg.position.y += 50*delta
 
 	if not minus1900:
@@ -35,15 +35,15 @@ func _process(delta: float) -> void:
 			for m_XOL in x_offset_list: 
 				# TOP LEFT TO BOTTOM RIGHT
 				for i in range(8):
-					summon_weak_homing_bullet_enemy(i*3, "top_left", "right", m_XOL, 0.0, 10, Vector2(100,100), 0, 8.0)
+					summon_weak_homing_bullet_enemy(i*3, "top_left", "right", m_XOL, 0.0, 10, Vector2(100,100), 0, 10.0)
 				# TOP RIGHT TO BOTTOM LEFT
 				for i in range(8):
-					summon_weak_homing_bullet_enemy(i*3, "top_right", "left", m_XOL, 0.0, 10, Vector2(100,100), 0, 8.0)
+					summon_weak_homing_bullet_enemy(i*3, "top_right", "left", m_XOL, 0.0, 10, Vector2(100,100), 0, 10.0)
 
 
 
 
-	if 2525.0 < stage_1_bg.position.y:
+	if 4790.0 < stage_1_bg.position.y:
 		if stage_music_toggle == false:
 			stage_music_toggle = true
 			Bgm.stop()
