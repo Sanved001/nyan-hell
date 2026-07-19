@@ -1,4 +1,9 @@
 extends CharacterBody2D
+
+@onready var spawn_bullet_timer: Timer = $SpawnBulletTimer
+
+var weak_homing_bullet = preload("res://Scenes/entities/weak_homing_bullet.tscn")
+
 # 0 = top
 # 1 = top_left
 # 2 = top_right
@@ -17,9 +22,14 @@ extends CharacterBody2D
 
 @export var speed_increase_value:float = 1.0
 @export var max_speed = Vector2(50,50)
+
+
 var speed:Vector2 = Vector2(0,0)
 
+
 func _ready() -> void:
+	_on_spawn_bullet_timer_timeout()
+	
 	position += Vector2(offset_x, offset_y)
 	if start_on != 0:
 		if start_on != 1:
@@ -103,3 +113,11 @@ func summon(m_start_on:String, m_end_on:String, m_offset_x:float, m_offset_y:flo
 	speed_increase_value = m_speed_increase_value
 	max_speed = m_max_speed
 	piviot_point = m_piviot_point
+
+
+func _on_spawn_bullet_timer_timeout() -> void:
+	var homing_bullet = weak_homing_bullet.instantiate()
+	
+	GameManager.get_Current_Level().add_child(homing_bullet)
+	homing_bullet.global_position = global_position
+	spawn_bullet_timer.start()

@@ -38,4 +38,7 @@ script = ExtResource("3_24fi2")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox" unique_id=1395113332]
 shape = SubResource("CircleShape2D_cpquo")
 
+[node name="SpawnBulletTimer" type="Timer" parent="." unique_id=1890764158]
+
 [connection signal="area_entered" from="Hurtbox" to="Hurtbox" method="_on_area_entered"]
+[connection signal="timeout" from="SpawnBulletTimer" to="." method="_on_spawn_bullet_timer_timeout"]

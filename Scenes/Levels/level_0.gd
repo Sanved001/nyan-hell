@@ -32,10 +32,10 @@ func _process(delta: float) -> void:
 			var x_offset_list = [0.0, 25.0, 50.0]
 			for m_XOL in x_offset_list: 
 				# TOP LEFT TO BOTTOM RIGHT
-				for i in range(15):
+				for i in range(8):
 					summon_weak_homing_bullet_enemy(i*2, "top_left", "right", m_XOL, 0.0, 10, Vector2(100,100), 0)
 				# TOP RIGHT TO BOTTOM LEFT
-				for i in range(15):
+				for i in range(8):
 					summon_weak_homing_bullet_enemy(i*2, "top_right", "left", m_XOL, 0.0, 10, Vector2(100,100), 0)
 
 

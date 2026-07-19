@@ -7,4 +7,10 @@
 script = ExtResource("1_hh2fv")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=65729976]
+scale = Vector2(0.5, 0.5)
 texture = ExtResource("1_cwtds")
+
+[node name="Locate_Player_Timer" type="Timer" parent="." unique_id=717072754]
+wait_time = 0.009999999999999998
+
+[connection signal="timeout" from="Locate_Player_Timer" to="." method="_on_locate_player_timer_timeout"]
