@@ -13,7 +13,7 @@ var spinner = preload("res://Scenes/moves/spinner.tscn")
 var start_end_flip:bool = false
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	summon_move_spinner(60, 60, 60, 0.01)
+	#summon_move_spinner(60, 60, 60, 0.01)
 	exit_timer(exit_time)
 	global_position = start_position
 

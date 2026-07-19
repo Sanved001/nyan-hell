@@ -24,6 +24,7 @@ buses/default_bus_layout="uid://cbvp82d20h24f"
 PlayerManager="*uid://dmdw5hgbst7gy"
 GameManager="*uid://c5tqjwfps3p6w"
 Bgm="*uid://d1ugrtfk5g704"
+SignalBus="*uid://bwj2082qlm2nw"
 
 [display]
 

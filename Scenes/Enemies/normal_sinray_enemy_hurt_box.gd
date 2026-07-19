@@ -1,7 +1,7 @@
 extends Area2D
 @onready var normal_sin_ray_enemy: CharacterBody2D = $".."
 
-@export var health = 1000
+@export var health = 2000
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
