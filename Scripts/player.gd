@@ -21,7 +21,7 @@ var player_bullet = preload("res://Scenes/entities/player_bullet.tscn")
 var margin_x:float
 var margin_y:float
 var play_area_size:Vector2
-
+var invincible:bool = false
 
 
 
@@ -67,10 +67,31 @@ func _physics_process(delta: float) -> void:
 	
 	if Input.is_action_pressed("shift"):
 		velocity -= Vector2(velocity.x/2, velocity.y/2)
+	
+	# DEBUG
+	if Input.is_action_just_pressed("make_invinsible"):
+		if not invincible:
+			invincible = true
+			SignalBus.show_invincible_indicator.emit(invincible)
+		else :
+			invincible = false
+			SignalBus.show_invincible_indicator.emit(invincible)
+	
+	if Input.is_action_pressed("time_accelerate"):
+		Engine.time_scale = 20
+	else: 
+		if Engine.time_scale != 1:
+			Engine.time_scale = 1
+	
+	if Input.is_action_just_pressed("die"):
+		get_tree().reload_current_scene.call_deferred()
 	move_and_slide()
+	
 
 
 func _on_hurt_box_area_entered(area: Area2D) -> void:
+	if invincible:
+		return
 	if not area is Hitbox:
 		return
 	if OS.is_debug_build():

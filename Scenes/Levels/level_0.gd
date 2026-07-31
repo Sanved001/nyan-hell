@@ -18,10 +18,11 @@ func _ready() -> void:
 		Bgm.volume_db = 0.0
 	GameManager.current_level = self 
 
-
+#add smt after y3200
 var stage_music_toggle = false
 var at0:bool = false
 var at1700:bool = false
+var at3200:bool = false
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	SignalBus.update_stage_y.emit(stage_1_bg.position.y)
@@ -47,9 +48,7 @@ func _process(delta: float) -> void:
 	if not at1700:
 		if 1700.0 < stage_1_bg.position.y:
 			at1700 = true
-			#summon_Flying_Bullet(0.2, 500, -30)
-			#summon_Flying_Bullet(0.2, 500)
-			#summon_Flying_Bullet(0.2, 500, 30)
+
 
 			summon_sin_ray_enemy(Vector2(196, -200),Vector2(196, 50), 1, 20)
 			#summon_normal_spinner_enemy(Vector2(50, -200),Vector2(50, 200), 1, 10, 10, 60, 0, 0.02)
@@ -57,6 +56,28 @@ func _process(delta: float) -> void:
 			
 			summon_normal_spinner_enemy(Vector2(20, -20), Vector2(120, 60), 1.5, 20, 10, 60, 200, 0.1) # Top Left
 			summon_normal_spinner_enemy(Vector2(320, -20), Vector2(340, 60), 1.5, 20, -10, -60, 160, 0.1) # Top Right
+
+	if not at3200:
+		if 3200.0 < stage_1_bg.position.y:
+			at3200 = true
+			summon_Flying_Bullet(0.2, 500, -30)
+			summon_Flying_Bullet(0.2, 500)
+			summon_Flying_Bullet(0.2, 500, 30)
+			
+			
+			# [0 -> 384]
+			# 25, 50, 75, 100, 125, 150, 175, 200, 225, 250, 275, 300, 325, 350, 375 
+			var spawn_cord_list:Array = [10, 20, 30, 40, 50,\
+			60, 70, 80, 90, 100,\
+			110, 120, 130, 140, 150, 160, 170, 180, 190, 200,\
+			210, 220, 230, 240, 250, 260, 270, 280, 290, 300,\
+			310, 320, 330, 340, 350, 360, 370, 380]
+			for i in range(100):
+				summon_Flying_Bullet_not_wrt_player(i*0.2, 150, spawn_cord_list.pick_random())
+				summon_Flying_Bullet_not_wrt_player(i*0.2, 150, spawn_cord_list.pick_random())
+				summon_Flying_Bullet_not_wrt_player(i*0.2, 175, spawn_cord_list.pick_random())
+				summon_Flying_Bullet_not_wrt_player(i*0.2, 175, spawn_cord_list.pick_random())
+				summon_Flying_Bullet_not_wrt_player(i*0.2, 200, spawn_cord_list.pick_random())
 
 
 	if 4790.0 < stage_1_bg.position.y:
@@ -115,3 +136,16 @@ m_bullet_rotation_speed:float,\
 	-m_spinner_rotation_value,\
 	m_spinner_starting_rotation + 180,\
 	m_bullet_spawn_cooldown)
+
+func summon_Flying_Bullet_not_wrt_player(wait_time:float, flying_bullet_speed:float, spawn_position_x:float, offset_x:float = 0.0):
+	await get_tree().create_timer(wait_time).timeout
+	if not is_instance_valid(self): return
+	
+	var m_flying_bullet = flying_bullet.instantiate()
+	
+	m_flying_bullet.my_speed = flying_bullet_speed
+	
+	add_child(m_flying_bullet)
+	m_flying_bullet.global_position = Vector2(spawn_position_x+offset_x, -500)
+	m_flying_bullet.global_position.x = clampf(m_flying_bullet.global_position.x , 0, 384)
+	m_flying_bullet.launch()

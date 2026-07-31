@@ -14,22 +14,26 @@ position = Vector2(-32, -24)
 anchor_mode = 0
 
 [node name="ColorRect" type="ColorRect" parent="." unique_id=1500928812]
+z_index = 2
 custom_minimum_size = Vector2(800, 24)
 offset_right = 800.0
 offset_bottom = 24.0
 
 [node name="ColorRect2" type="ColorRect" parent="." unique_id=580354901]
+z_index = 2
 custom_minimum_size = Vector2(32, 32)
 offset_right = 32.0
 offset_bottom = 524.0
 
 [node name="ColorRect3" type="ColorRect" parent="." unique_id=1485995061]
+z_index = 2
 custom_minimum_size = Vector2(32, 32)
 offset_top = 456.0
 offset_right = 800.0
 offset_bottom = 526.0
 
 [node name="ColorRect4" type="ColorRect" parent="." unique_id=728254443]
+z_index = 2
 custom_minimum_size = Vector2(32, 32)
 offset_left = 416.0
 offset_top = 24.0
@@ -45,3 +49,20 @@ offset_right = 80.0
 offset_bottom = 478.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 text = "TEST"
+
+[node name="invinsible_indicator" type="ColorRect" parent="UI" unique_id=531242675]
+custom_minimum_size = Vector2(22, 24)
+offset_left = 32.0
+offset_right = 48.0
+offset_bottom = 16.0
+color = Color(1, 1, 0.40784314, 1)
+
+[node name="Label" type="Label" parent="UI/invinsible_indicator" unique_id=1263619757]
+layout_mode = 0
+offset_left = 1.0
+offset_top = 4.0
+offset_right = 41.0
+offset_bottom = 27.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 12
+text = "INV"
