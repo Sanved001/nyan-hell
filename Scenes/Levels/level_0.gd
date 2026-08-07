@@ -77,7 +77,8 @@ func _process(delta: float) -> void:
 				summon_Flying_Bullet_not_wrt_player(i*1, 100, spawn_cord_list.pick_random())
 				summon_Flying_Bullet_not_wrt_player(i*1, 100, spawn_cord_list.pick_random())
 				summon_Flying_Bullet_not_wrt_player(i*1, 75, spawn_cord_list.pick_random())
-
+				summon_Flying_Bullet_not_wrt_player(i*1, 100, spawn_cord_list.pick_random())
+				summon_Flying_Bullet_not_wrt_player(i*1, 100, spawn_cord_list.pick_random())
 
 	if not at2900:
 		if 2900.0 < stage_1_bg.position.y:
